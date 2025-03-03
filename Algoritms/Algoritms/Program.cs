@@ -1,4 +1,7 @@
-﻿using Algoritms.String;
+﻿using Algoritms.Bit;
+using Algoritms.Graph;
+using Algoritms.Search;
+using Algoritms.String;
 using System;
 using System.Text;
 
@@ -36,10 +39,10 @@ class Program
             string result = menuChoice switch
             {
                 "1" => HandleStringAlgorithms(),
-                "2" => "[Sorting Algorithms Menu]",
-                "3" => "[Search Algorithms Menu]",
-                "4" => "[Graph Algorithms Menu]",
-                "5" => "[Bit Manipulation Algorithms Menu]",
+               // "2" => HandleSortAlgorithms(),
+                "3" => HandleSearchAlgorithms(),
+                "4" => HandleGraphAlgorithms(),
+                "5" => HandleBitAlgorithms(),
                 "6" => "[Recursion Algorithms Menu]",
                 "7" => "[Game Algorithms Menu]",
                 "8" => "[Array & List Algorithms Menu]",
@@ -77,5 +80,64 @@ class Program
         };
     }
 
+    static string HandleSearchAlgorithms()
+    {
+        Console.WriteLine("\nSearch Algorithms Menu:");
+        StringBuilder sb = new();
+        sb.AppendLine("[1] - Missing Number");
+        sb.AppendLine("[B] - Back to Main Menu");
+        Console.WriteLine(sb);
+
+        Console.Write("Enter your choice: ");
+        string? choice = Console.ReadLine()?.Trim();
+
+        return choice switch
+        {
+            "1" => MissingNumber.InvokeFunction(),
+            "B" or "b" => "Returning to Main Menu...",
+            _ => "Invalid choice. Please select a valid option."
+        };
+    }
+
+    static string HandleGraphAlgorithms()
+    {
+        Console.WriteLine("\nSearch Algorithms Menu:");
+        StringBuilder sb = new();
+        sb.AppendLine("[1] - Snakes and ladders");
+        sb.AppendLine("[B] - Back to Main Menu");
+        Console.WriteLine(sb);
+
+        Console.Write("Enter your choice: ");
+        string? choice = Console.ReadLine()?.Trim();
+
+        return choice switch
+        {
+            "1" => SnakesAndLadders.InvokeFunction(),
+            "B" or "b" => "Returning to Main Menu...",
+            _ => "Invalid choice. Please select a valid option."
+        };
+    }
+
+    static string HandleBitAlgorithms()
+    {
+        Console.WriteLine("\nBit Algorithms Menu:");
+        StringBuilder sb = new();
+        sb.AppendLine("[1] - Lonely number");
+        sb.AppendLine("[B] - Back to Main Menu");
+        Console.WriteLine(sb);
+
+        Console.Write("Enter your choice: ");
+        string? choice = Console.ReadLine()?.Trim();
+
+        Console.Write("Enter your input: ");
+        string? input = Console.ReadLine()?.Trim();
+
+        return choice switch
+        {
+            "1" => Lonely.InvokeFunction(input!),
+            "B" or "b" => "Returning to Main Menu...",
+            _ => "Invalid choice. Please select a valid option."
+        };
+    }
 
 }
